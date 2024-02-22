@@ -46,8 +46,10 @@ const imageUpload = document.querySelector("#imageUpload");
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
 
-//var ws = new WebSocket("wss://nodecloud-rsr6.onrender.com/chatkinan");
-var ws = new WebSocket("ws://localhost:1880/chatkinan");
+// Get the selected WebSocket server
+const websocketServer = document.querySelector("#websocket-server").value;
+
+var ws = new WebSocket(websocketServer);
 
 ws.onopen = function(e) {
     console.log("[open] Connection established");
